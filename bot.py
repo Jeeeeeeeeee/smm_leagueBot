@@ -219,16 +219,21 @@ def get_text_messages(message):
                          parse_mode='HTML')
 
     elif message.text == '🎁 Как получить бонус':
+        keyboard = telebot.types.InlineKeyboardMarkup()
+        url_button = telebot.types.InlineKeyboardButton(text='🎁 Скорее забирай свой подарок 🎁',
+                                                        url="https://instagram.com/smm.league?igshid=1q2864gggcbhz")
+        keyboard.add(url_button)
         bot.send_message(message.from_user.id,
-                         'Перейти в нашу закрытую группу и написать в директ слово "БОНУС" И мы отправим его тебе!\n\n' +
-                         '🎁 <a href="https://instagram.com/smm.league?igshid=1q2864gggcbhz"><b>Скорее забирай свой подарок</b></a> 🎁\n\n',
-                         parse_mode='HTML')
+                         'Перейти в нашу закрытую группу и написать в директ слово "БОНУС" И мы отправим его тебе!\n\n',
+                         reply_markup=keyboard, parse_mode='HTML')
 
     elif message.text == '🔐 Закрытая группа мастер-класса':
+        keyboard = telebot.types.InlineKeyboardMarkup()
+        url_button = telebot.types.InlineKeyboardButton(text='⏭ Твоя персональная ссылка ⏪', url="https://instagram.com/smm.league?igshid=1q2864gggcbhz")
+        keyboard.add(url_button)
         bot.send_message(message.from_user.id,
-                         'Вся основная коммуникация будет проходить в нашей закрытой группе, сорее приссоеденяйся.\n\n' +
-                         '⏭ <a href="https://instagram.com/smm.league?igshid=1q2864gggcbhz"><b>Вот твоя персональная ссылка</b></a> ⏪',
-                         parse_mode='HTML')
+                         'Вся основная коммуникация будет проходить в нашей закрытой группе, сорее приссоеденяйся.\n\n',
+                         reply_markup=keyboard, parse_mode='HTML')
 
     elif message.text == '📱 Связаться с нами':
         keyboard = telebot.types.InlineKeyboardMarkup()
